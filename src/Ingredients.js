@@ -1,10 +1,9 @@
 const Ingredients = ({recipeItems}) => {
-    console.log(recipeItems, 'sadasdadad')
     return (
         recipeItems.map((measurements) =>
-            <div>
+            <div className="ingredients">
             <img src= {'https://www.themealdb.com/images/ingredients/' + measurements[1] + '-Small.png'}/>
-            <span>{measurements}</span>
+            <div>{measurements[0]} {measurements[1]}</div>
             </div>
         )
     )
