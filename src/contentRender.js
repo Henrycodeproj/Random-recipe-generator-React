@@ -17,18 +17,12 @@ const ContentRender = ({items, handleNext}) => {
         }
     }
 
-    console.log(items)
-
     return (
         <main>
-            <div className='wrapper'>
+            <div>
                 <h1>{items.strMeal}</h1>
-                <h2>{items.strArea}</h2>
                 <img src = {items.strMealThumb} alt = "text"></img>
-                <h2 className='instructions'>{items.strInstructions}</h2>
-                <h3>{items.strCategory}</h3>
-                <div><a href={items.strYoutube} target="blank">Watch video</a></div>
-                <span><FaArrowRight onClick={handleNext} className='faArrow'/></span>
+                <span><FaArrowRight onClick={handleNext}/></span>
             </div>
 
             <section><Ingredients recipeItems = {ingredients}/></section>

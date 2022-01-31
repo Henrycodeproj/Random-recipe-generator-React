@@ -1,31 +1,15 @@
-body{
-  margin:5rem;
-}
-main{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.wrapper{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 section{
   display:flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
-.faArrow{
-  cursor: pointer;
+main{
+  display:flex;
+  justify-content: space-evenly;
 }
-.ingredients {
-  text-transform: capitalize;
-}
-@media (max-width:300px){
-  img {
-    width:200px;
+
+@keyframes left {
+  0% {
+    transform: translateX(50px);
   }
 }
