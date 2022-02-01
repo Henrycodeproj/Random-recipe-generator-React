@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import Content from './content'
+import Content from './components/content/content'
 function App() {
 
   const [items, setItems] = useState('')
