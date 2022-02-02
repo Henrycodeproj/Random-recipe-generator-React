@@ -1,8 +1,10 @@
 import {useState, useEffect} from 'react'
 import Content from './components/content/content'
+import SaveRecipe from './components/SaveList/SaveRecipe'
 function App() {
 
   const [items, setItems] = useState('')
+  const [recipe, setRecipe] = useState([])
 
   //gets fetch data on inital startup, doesn't update any other time
   useEffect(()=> {
@@ -25,6 +27,9 @@ function App() {
       <Content
       items ={items}
       setItems = {setItems} 
+      />
+      <SaveRecipe
+      itemID = {items}
       />
     </div>
   );

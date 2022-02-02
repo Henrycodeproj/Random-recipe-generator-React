@@ -22,7 +22,7 @@ const ContentRender = ({items, handleNext}) => {
             <div>
                 <h1>{items.strMeal}</h1>
                 <img src = {items.strMealThumb} alt = "text"></img>
-                <span><FaArrowRight onClick={handleNext}/></span>
+                <div><FaArrowRight onClick={handleNext} className='faArrow'/></div>
             </div>
 
             <section><Ingredients recipeItems = {ingredients}/></section>

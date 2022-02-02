@@ -6,10 +6,8 @@ section{
 main{
   display:flex;
   justify-content: space-evenly;
+  flex-direction: column;
 }
-
-@keyframes left {
-  0% {
-    transform: translateX(50px);
-  }
+.faArrow{
+  cursor: pointer;
 }
