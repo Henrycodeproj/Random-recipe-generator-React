@@ -1,19 +1,30 @@
+import { useState } from "react"
+
 const SaveRecipe = ({itemID}) =>{
-    console.log(itemID)
+
+    let currentList = JSON.parse(localStorage.getItem('savedRecipes'))
 
     const saveRecipe = () => {
-        let ID = itemID.idMeal
-        let title = itemID.strMeal
-        localStorage.setItem('savedRecipes', JSON.stringify({'Id':ID, 'title':title}))
+        let addRecipe = {
+            Id:itemID.idMeal,
+            title:itemID.strMeal
+        }
+        const array = []
+        if (currentList === null) {
+            array.push(addRecipe)
+            localStorage.setItem('savedRecipes', JSON.stringify(array))
+        } else {
+            const newList = [...currentList, addRecipe]
+            localStorage.setItem('savedRecipes', JSON.stringify(newList))
+        }
     }
-
-    let get = JSON.parse(localStorage.getItem('savedRecipes'))
-
     return (
-        <section>
-            <button onClick={() => saveRecipe()}>Save Recipe</button>
-            {localStorage.getItem('savedRecipes') ? <div>{get.title}</div>:<div>You currently do not have any recipes saved</div>}
-        </section>
+        <div>
+            <div><button onClick={(e) => saveRecipe(e)}>Save Recipe</button></div>
+            {currentList? currentList.map((listItems) =>
+            <a>{listItems.title}</a>):
+            <div>You have no items in the list yet</div>}
+        </div>
     )
 }
 
