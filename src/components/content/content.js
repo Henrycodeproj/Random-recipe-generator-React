@@ -1,6 +1,6 @@
 import ContentRender from './contentRender';
 import { useContext } from 'react';
-import {recipeItems} from '../SaveList/context';
+import {recipeItems} from '../../Context/context';
 
 const Content = () =>{
     //handles the next recipe from api call

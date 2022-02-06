@@ -1,7 +1,7 @@
 import { FaArrowRight } from 'react-icons/fa';
 import Ingredients from './Ingredients';
 import { useContext } from 'react';
-import {recipeItems} from '../SaveList/context';
+import {recipeItems} from '../../Context/context';
 
 const ContentRender = ({handleNext}) => {
     const {items} = useContext(recipeItems)

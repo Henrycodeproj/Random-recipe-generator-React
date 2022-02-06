@@ -1,6 +1,6 @@
 import Content from './components/content/content'
-import SaveRecipe from './components/SaveList/SaveRecipe'
-import {RecipeContext} from './components/SaveList/context'
+import SaveRecipe from './components/SaveList/RecipeHandler'
+import {RecipeContext} from './Context/context'
 
 function App() {
 
