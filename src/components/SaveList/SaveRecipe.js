@@ -1,13 +1,15 @@
-import { useState } from "react"
+import {useContext} from "react"
+import {recipeItems} from "./context"
 
-const SaveRecipe = ({itemID}) =>{
+const SaveRecipe = () =>{
+    const {items, showRecipe} = useContext(recipeItems)
 
     let currentList = JSON.parse(localStorage.getItem('savedRecipes'))
 
     const saveRecipe = () => {
         let addRecipe = {
-            Id:itemID.idMeal,
-            title:itemID.strMeal
+            Id:items.idMeal,
+            title:items.strMeal
         }
         const array = []
         if (currentList === null) {
@@ -18,11 +20,16 @@ const SaveRecipe = ({itemID}) =>{
             localStorage.setItem('savedRecipes', JSON.stringify(newList))
         }
     }
+
     return (
         <div>
             <div><button onClick={(e) => saveRecipe(e)}>Save Recipe</button></div>
             {currentList? currentList.map((listItems) =>
-            <a>{listItems.title}</a>):
+            <ul>
+                <li key={listItems.Id}>
+                    <a onClick={() => showRecipe(listItems.Id)}>{listItems.title}</a>
+                </li>
+            </ul>):
             <div>You have no items in the list yet</div>}
         </div>
     )

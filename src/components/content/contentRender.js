@@ -1,7 +1,10 @@
 import { FaArrowRight } from 'react-icons/fa';
 import Ingredients from './Ingredients';
+import { useContext } from 'react';
+import {recipeItems} from '../SaveList/context';
 
-const ContentRender = ({items, handleNext}) => {
+const ContentRender = ({handleNext}) => {
+    const {items} = useContext(recipeItems)
 
     const ingredients = []
 
@@ -16,15 +19,19 @@ const ContentRender = ({items, handleNext}) => {
             ingredients.push(arr)
         }
     }
+    console.log(items)
 
     return (
         <main>
             <div>
                 <h1>{items.strMeal}</h1>
+                <h2>{items.strArea}</h2>
                 <img src = {items.strMealThumb} alt = "text"></img>
+                <h2>{items.strInstructions}</h2>
+                <h2>{items.strCategory}</h2>
+                <a href = {items.strYoutube}>Watch a video</a>
                 <div><FaArrowRight onClick={handleNext} className='faArrow'/></div>
             </div>
-
             <section><Ingredients recipeItems = {ingredients}/></section>
         </main>
     )
