@@ -11,3 +11,7 @@ main{
 .faArrow{
   cursor: pointer;
 }
+body{
+  display:flex;
+  flex-direction: row;
+}

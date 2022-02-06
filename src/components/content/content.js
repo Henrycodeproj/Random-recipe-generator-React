@@ -1,7 +1,11 @@
 import ContentRender from './contentRender';
+import { useContext } from 'react';
+import {recipeItems} from '../SaveList/context';
 
-const Content = ({items, setItems}) =>{
+const Content = () =>{
     //handles the next recipe from api call
+    const {setItems} = useContext(recipeItems)
+    
     const handleNext = async () => { 
         const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php') // gets the data from api
         const recipeObject = await response.json() // changes the object into json format
@@ -10,8 +14,6 @@ const Content = ({items, setItems}) =>{
     }
     return (
         <ContentRender
-        items = {items}
-        setItems = {setItems}
         handleNext = {handleNext}
         />
     )
