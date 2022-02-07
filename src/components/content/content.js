@@ -7,7 +7,7 @@ const Content = () =>{
     const {setItems} = useContext(recipeItems)
     
     const handleNext = async () => { 
-        const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php') // gets the data from api
+        const response = await fetch('https://www.themealdb.com/api/json/v2/1/random.php') // gets the data from api
         const recipeObject = await response.json() // changes the object into json format
         const recipe = await recipeObject.meals[0] // returns an object with an array called meals
         setItems(recipe)

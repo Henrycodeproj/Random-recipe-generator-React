@@ -1,17 +1,21 @@
-section{
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+*{
+  padding:0;
+  margin:0;
 }
-main{
-  display:flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-}
-.faArrow{
-  cursor: pointer;
-}
-body{
+.App{
   display:flex;
   flex-direction: row;
+  margin:2rem;
+  justify-content: space-evenly;
+}
+main{
+  width:50%;
+}
+.food_image{
+  max-width: 600px;
+  height:auto;
+}
+.list_container{
+  width:25%;
+  height:auto;
 }
