@@ -1,7 +1,7 @@
 import {useContext, useEffect, useState} from "react"
 import { recipeItems } from "../../Context/context"
 import { FaTrashAlt } from "react-icons/fa"
-import { motion } from "framer-motion"
+import { motion, useSpring } from "framer-motion"
 
 const SaveRecipe = () =>{
     const {items, showRecipe} = useContext(recipeItems)
@@ -39,10 +39,14 @@ const SaveRecipe = () =>{
         <div className="list_container">
 
             <div><button onClick={(e) => saveRecipe(e)}>Save Recipe</button></div>
-            <motion.div
-            animate={{ scale: 2 }}
-            transition={{ duration: 0.5 }}
-            />
+            <div>
+            <motion.button 
+                drag
+                dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
+            >
+                test
+            </motion.button>
+            </div>
 
             {savedItems ? savedItems.map((listItems) =>
             <ul>
