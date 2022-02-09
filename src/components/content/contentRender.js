@@ -2,6 +2,7 @@ import { FaArrowRight } from 'react-icons/fa';
 import Ingredients from './Ingredients';
 import { useContext } from 'react';
 import {recipeItems} from '../../Context/context';
+import { motion } from 'framer-motion';
 
 const ContentRender = ({handleNext}) => {
     const {items} = useContext(recipeItems)
@@ -34,7 +35,9 @@ const ContentRender = ({handleNext}) => {
                 <a href = {items.strYoutube}>Watch a video</a>
                 <div><FaArrowRight onClick={handleNext} className='faArrow'/></div>
             </div>
-            <section><Ingredients recipeItems = {ingredients}/></section>
+            <section>
+                <Ingredients recipeItems = {ingredients}/>
+            </section>
         </main>
     )
 }

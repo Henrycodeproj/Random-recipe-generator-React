@@ -1,7 +1,7 @@
 import {useContext, useEffect, useState} from "react"
 import { recipeItems } from "../../Context/context"
 import { FaTrashAlt } from "react-icons/fa"
-import { motion, useSpring } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 const SaveRecipe = () =>{
     const {items, showRecipe} = useContext(recipeItems)
@@ -15,12 +15,17 @@ const SaveRecipe = () =>{
             title:items.strMeal
         }
 
+        let idList = savedItems.map((storageItems) => storageItems.Id)
+    
         const array = []
 
         if (savedItems === null) {
             array.push(addRecipe)
             setSavedItems(array)
             localStorage.setItem('savedRecipes', JSON.stringify(array))
+        } else if (idList.includes(addRecipe.Id) == true) {
+            console.log('This recipe is already in your list!')
+            return
         } else {
             const newList = [...savedItems, addRecipe]
             setSavedItems(newList)
@@ -40,24 +45,33 @@ const SaveRecipe = () =>{
 
             <div><button onClick={(e) => saveRecipe(e)}>Save Recipe</button></div>
             <div>
-            <motion.button 
-                drag
-                dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
+            <motion.button
+                animate ={{x:-200}} 
+                transition={{type:"spring", duration:1 }}
             >
                 test
             </motion.button>
             </div>
 
-            {savedItems ? savedItems.map((listItems) =>
+            <AnimatePresence>
+            {savedItems? savedItems.map((listItems) =>
+            <motion.div
+            key={listItems.title}
+            animate = {{ opacity:[0,.5,1]}}
+            transition = {{duration:1}}
+            intial = {{x:0}}
+            exit = {{opacity:[1,.5,.25,0]}}
+            >
             <ul>
                 <li key={listItems.Id}>
                     <a className = "list_links"onClick={() => showRecipe(listItems.Id)}>{listItems.title}</a>
                     <span><FaTrashAlt className="trash_delete" onClick={() => deleteHandler(listItems.Id)}/></span>
                 </li>
             </ul>
-
+            </motion.div>
             ):
             <div>You have no items in the list yet</div>}
+            </AnimatePresence>
         </div>
     )
 }
