@@ -1,12 +1,12 @@
 import { FaArrowRight } from 'react-icons/fa';
 import Ingredients from './Ingredients';
-import { useContext } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import {recipeItems} from '../../Context/context';
 import { motion } from 'framer-motion';
 
 const ContentRender = ({handleNext}) => {
     const {items} = useContext(recipeItems)
-    console.log(items.strInstructions)
+    //console.log(items.strInstructions)
 
     const ingredients = []
     //gets the values from the keys in returned json object
@@ -23,6 +23,14 @@ const ContentRender = ({handleNext}) => {
             ingredients.push(arr)
         }
     }
+    const carouselWidth = useRef()
+
+    const [width, setWidth] = useState(0)
+
+    useEffect (() =>{
+        setWidth(carouselWidth.current.scrollWidth - carouselWidth.current.offsetWidth)
+        console.log(width)
+    },[])
 
     return (
         <main>
@@ -36,7 +44,15 @@ const ContentRender = ({handleNext}) => {
                 <div><FaArrowRight onClick={handleNext} className='faArrow'/></div>
             </div>
             <section>
-                <Ingredients recipeItems = {ingredients}/>
+            <motion.div ref={carouselWidth} className='test'>
+            <motion.div
+            drag = "x"
+            dragConstraints = {{right:width, left: -width}}
+            className='test1'
+            >
+            <Ingredients recipeItems = {ingredients}/>
+            </motion.div>
+            </motion.div>
             </section>
         </main>
     )
