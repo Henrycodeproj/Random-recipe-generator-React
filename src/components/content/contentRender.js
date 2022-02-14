@@ -30,7 +30,7 @@ const ContentRender = ({handleNext}) => {
 
     useEffect (() =>{
         setWidth(carouselWidth.current.scrollWidth - carouselWidth.current.offsetWidth)
-        console.log(carouselWidth.current.scrollWidth)
+        console.log(carouselWidth.current.offsetWidth, carouselWidth.current.scrollWidth)
     },[items])
 
     return (
@@ -48,7 +48,7 @@ const ContentRender = ({handleNext}) => {
             <motion.div className='test'>
             <motion.div ref={carouselWidth}
             drag = "x"
-            dragConstraints = {{right:width, left: -width}}
+            dragConstraints = {{right:0, left: -width}}
             className='test1'
             >
             <Ingredients recipeItems = {ingredients}/>

@@ -1,10 +1,8 @@
-.random_recipe {
-  width:50%;
-}
-.test{
-  overflow-x: hidden;
-}
-.test1{
+nav{
   display:flex;
-  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+li{
+  display:inline-block;
 }
