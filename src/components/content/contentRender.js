@@ -23,14 +23,15 @@ const ContentRender = ({handleNext}) => {
             ingredients.push(arr)
         }
     }
+
     const carouselWidth = useRef()
 
     const [width, setWidth] = useState(0)
 
     useEffect (() =>{
         setWidth(carouselWidth.current.scrollWidth - carouselWidth.current.offsetWidth)
-        console.log(width)
-    },[])
+        console.log(carouselWidth.current.scrollWidth)
+    },[items])
 
     return (
         <main>
@@ -44,8 +45,8 @@ const ContentRender = ({handleNext}) => {
                 <div><FaArrowRight onClick={handleNext} className='faArrow'/></div>
             </div>
             <section>
-            <motion.div ref={carouselWidth} className='test'>
-            <motion.div
+            <motion.div className='test'>
+            <motion.div ref={carouselWidth}
             drag = "x"
             dragConstraints = {{right:width, left: -width}}
             className='test1'
