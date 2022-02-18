@@ -1,5 +1,6 @@
 import { useContext, useState } from "react"
 import { recipeItems } from "../Context/context"
+import {motion} from "framer-motion"
 
 export const Navbar = () => {
 
@@ -14,7 +15,7 @@ export const Navbar = () => {
             const response = await fetch(`${URL}${e.target.value}`)
             const results = await response.json()
             const meals = await results.meals
-            //console.log(meals)
+            console.log(meals)
             setSearch(meals)
         }
 
@@ -26,24 +27,26 @@ export const Navbar = () => {
     }  
     return (
         <nav>
-            <div>test</div>
-            <ul>
-                <li>test2</li>
-                <li>test3</li>
+            <ul className="outline">
+                <li>items</li>
+                <li>items2</li>
             </ul>
+            <div>
             <input type = "text" placeholder="Type a category or meal" onChange={(e)=> searchBar(e)}></input>
-                    <div className="searchContainer">
-                        { //begining of conditional
-                        search ? search.map((meal) => // first condition checks to see if there is any information typed in search bar
-                        <ul>
-                            <li onClick={() => handlesearchLinks(meal)}> 
-                                {meal.strMeal}
-                            </li>
-                        </ul>
-                        ):// If there is nothing in search state, it will render nothing.
-                        console.log('nothing')
-                        }
-                    </div>
+                        <div className="searchContainer">
+                            { //begining of conditional
+                            search ? search.map((meal) => // first condition checks to see if there is any information typed in search bar
+                                <motion.div onClick={() => handlesearchLinks(meal)} className = "ddd"
+                                whileHover={{scale:1.1}}
+                                > 
+                                    <img className="preview" src={meal.strMealThumb}></img>
+                                    <p className="search_results">{meal.strMeal}</p>
+                                </motion.div>
+                            ):// If there is nothing in search state, it will render nothing.
+                            console.log('nothing')
+                            }
+                        </div>
+            </div>
         </nav>
     )
 }
