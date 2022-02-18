@@ -6,3 +6,34 @@ nav{
 li{
   display:inline-block;
 }
+.searchContainer {
+  width:200px;
+  height:200px;
+  overflow: hidden;
+  overflow-y:auto;
+}
+.wrapping{
+  display:flex;
+}
+.outline{
+  width:200px;
+  display:flex;
+  justify-content: space-evenly;
+}
+.search_restults{
+  width:1rem;
+}
+.preview{
+  width:50px;
+  height:50px;
+}
+.ddd{
+  display:flex;
+  margin:.5rem;
+}
+p{
+  margin-left:5px;
+}
+input{
+  width:95%;
+}
