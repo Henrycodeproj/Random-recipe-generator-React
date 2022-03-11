@@ -62,10 +62,10 @@ const SaveRecipe = () =>{
     }
 
     return (
-        <div className="list_container">
-
+        // <div className="list_container">
+        <section>
             <div><button onClick={(e) => saveRecipe(e)}>Save Recipe</button></div>
-
+            <ul>
             <AnimatePresence>
             {savedItems? savedItems.map((listItems) =>
             <motion.div
@@ -75,17 +75,16 @@ const SaveRecipe = () =>{
             animate = "Motion"
             exit = "Leave"
             >
-                <ul>
-                    <li key={listItems.Id}>
-                        <a className = "list_links"onClick={() => showRecipe(listItems.Id)}>{listItems.title}</a>
-                        <span><FaTrashAlt className="trash_delete" onClick={() => deleteHandler(listItems.Id)}/></span>
-                    </li>
-                </ul>
+                <li key={listItems.Id}>
+                    <a className = "list_links"onClick={() => showRecipe(listItems.Id)}>{listItems.title}</a>
+                    <span><FaTrashAlt className="trash_delete" onClick={() => deleteHandler(listItems.Id)}/></span>
+                </li>
             </motion.div>
             ):
             <div>You have no items in the list yet</div>}
             </AnimatePresence>
-        </div>
+            </ul>
+            </section>
     )
 }
 
