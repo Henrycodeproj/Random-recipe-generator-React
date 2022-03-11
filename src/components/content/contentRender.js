@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 
 const ContentRender = ({handleNext}) => {
     const {items} = useContext(recipeItems)
-    //console.log(items.strInstructions)
 
     const ingredients = []
     //gets the values from the keys in returned json object
@@ -34,15 +33,18 @@ const ContentRender = ({handleNext}) => {
     },[items])
 
     return (
-        <main>
-            <div className='random_recipe'>
-                <h1>{items.strMeal}</h1>
-                <h2>{items.strArea}</h2>
-                <img className = "food_image" src = {items.strMealThumb} alt = "text"></img>
-                <h2>{items.strInstructions}</h2>
-                <h2>{items.strCategory}</h2>
-                <a href = {items.strYoutube}>Watch a video</a>
-                <div><FaArrowRight onClick={handleNext} className='faArrow'/></div>
+        <article>
+            <div className='display_wrapper'>
+                <div className='random_recipe'>
+                    <h1>{items.strMeal}</h1>
+                    <h2>{items.strArea}</h2>
+                    <img className = "food_image" src = {items.strMealThumb} alt = "text"></img>
+                    {items.strInstructions}
+                    <h2>{items.strInstructions}</h2>
+                    <h2>{items.strCategory}</h2>
+                    <a href = {items.strYoutube}>Watch a video</a>
+                    <div><FaArrowRight onClick={handleNext} className='faArrow'/></div>
+                </div>
             </div>
             <section>
             <motion.div className='test'>
@@ -51,11 +53,13 @@ const ContentRender = ({handleNext}) => {
             dragConstraints = {{right:0, left: -width}}
             className='test1'
             >
+            <ul>
             <Ingredients recipeItems = {ingredients}/>
+            </ul>
             </motion.div>
             </motion.div>
             </section>
-        </main>
+        </article>
     )
 }
 

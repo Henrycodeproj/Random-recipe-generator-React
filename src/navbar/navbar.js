@@ -1,10 +1,11 @@
-import { useContext, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import { recipeItems } from "../Context/context"
 import {motion} from "framer-motion"
 
 export const Navbar = () => {
 
     const [search, setSearch] = useState('')
+    const [searchItems, setsearchItems] = useState([])
 
     const {setItems} = useContext(recipeItems)
 
@@ -22,17 +23,21 @@ export const Navbar = () => {
         (async () => fetchData())()
 
     }
+    
     const handlesearchLinks = (meal) => {
         setItems(meal)
-    }  
+    } 
+
     return (
         <nav>
-            <ul className="outline">
+            {/* <ul className="outline">
                 <li>items</li>
                 <li>items2</li>
-            </ul>
-            <div>
+                { <Button variant="contained" color ="error">Hello World</Button>}
+            </ul> */}
+            <div className="nav-container">
             <input type = "text" placeholder="Type a category or meal" onChange={(e)=> searchBar(e)}></input>
+            {searchItems.value !== 0 && (
                         <div className="searchContainer">
                             { //begining of conditional
                             search ? search.map((meal) => // first condition checks to see if there is any information typed in search bar
@@ -46,6 +51,7 @@ export const Navbar = () => {
                             console.log('nothing')
                             }
                         </div>
+            )}
             </div>
         </nav>
     )
