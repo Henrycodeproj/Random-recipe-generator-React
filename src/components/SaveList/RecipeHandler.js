@@ -64,6 +64,7 @@ const SaveRecipe = () =>{
     return (
         // <div className="list_container">
         <section>
+            <div className="du">
             <div><button onClick={(e) => saveRecipe(e)}>Save Recipe</button></div>
             <ul>
             <AnimatePresence>
@@ -84,6 +85,7 @@ const SaveRecipe = () =>{
             <div>You have no items in the list yet</div>}
             </AnimatePresence>
             </ul>
+            </div>
             </section>
     )
 }

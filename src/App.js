@@ -10,9 +10,11 @@ function App() {
       <RecipeContext>
         <Navbar/>
         <main>
+        <div className='main_container'>
           <div className='main_wrapper'>
             <Content/>
             <SaveRecipe/>
+            </div>
           </div>
         </main>
       </RecipeContext>
