@@ -65,27 +65,27 @@ const SaveRecipe = () =>{
         // <div className="list_container">
         <section>
             <div className="du">
-            <div><button onClick={(e) => saveRecipe(e)}>Save Recipe</button></div>
-            <ul>
-            <AnimatePresence>
-            {savedItems? savedItems.map((listItems) =>
-            <motion.div
-            key={listItems.title}
-            variants = {listAnimations}
-            initial = "Begin"
-            animate = "Motion"
-            exit = "Leave"
-            >
-                <li key={listItems.Id}>
-                    <a className = "list_links"onClick={() => showRecipe(listItems.Id)}>{listItems.title}</a>
-                    <span><FaTrashAlt className="trash_delete" onClick={() => deleteHandler(listItems.Id)}/></span>
-                </li>
-            </motion.div>
+                <button className="save_button" onClick={(e) => saveRecipe(e)}>Save Recipe</button>
+                    <ul>
+                    <AnimatePresence>
+                    {savedItems? savedItems.map((listItems) =>
+                        <motion.div
+                            key={listItems.title}
+                            variants = {listAnimations}
+                            initial = "Begin"
+                            animate = "Motion"
+                            exit = "Leave"
+                        >
+                            <li className="list_display" key={listItems.Id}>
+                                <a className = "list_links"onClick={() => showRecipe            (listItems.Id)}>{listItems.title}</a>
+                                <div><FaTrashAlt className="trash_delete" onClick={()          => deleteHandler(listItems.Id)}/></div>
+                            </li>
+                        </motion.div>
             ):
-            <div>You have no items in the list yet</div>}
-            </AnimatePresence>
-            </ul>
-            </div>
+                        <div>You have no items in the list yet</div>}
+                    </AnimatePresence>
+                    </ul>
+                </div>
             </section>
     )
 }

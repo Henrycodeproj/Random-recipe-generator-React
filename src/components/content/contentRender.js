@@ -1,40 +1,11 @@
 import { FaArrowRight } from 'react-icons/fa';
-import Ingredients from './Ingredients';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext} from 'react';
 import {recipeItems} from '../../Context/context';
-import { motion } from 'framer-motion';
 
 const ContentRender = ({handleNext}) => {
+    
     const {items} = useContext(recipeItems)
 
-    const ingredients = []
-    //gets the values from the keys in returned json object
-    let values = Object.values(items)
-    let counter = 29
-    //The item number position starts at 9 and the ingredients start at 29 for api,
-    for (let i = 9; i <= 28; i++) { 
-        // this loop adds a sub array to an outter array to better organize data
-        let arr = []
-        arr.push(values[counter])
-        arr.push(values[i])
-        counter += 1
-        if (arr[0] && arr[1] !== '') { //checks to see if array has any items and appends if items are present
-            ingredients.push(arr)
-        }
-    }
-
-    const carouselWidth = useRef()
-
-    const [width, setWidth] = useState(0)
-
-    useEffect (() =>{
-        setWidth(carouselWidth.current.scrollWidth - carouselWidth.current.offsetWidth)
-        console.log(carouselWidth.current.offsetWidth, carouselWidth.current.scrollWidth)
-    },[items])
-
-    const recipe = async() =>{
-        console.log(items.strInstructions.split())
-    }
     return (
         <article>
             <div className='display_wrapper'>
@@ -47,20 +18,6 @@ const ContentRender = ({handleNext}) => {
                     <div><FaArrowRight onClick={handleNext} className='faArrow'/></div>
                 </div>
             </div>
-            <aside>
-            <h2>{items.strInstructions}</h2>
-            <motion.div className='test'>
-            <motion.div ref={carouselWidth}
-            drag = "x"
-            dragConstraints = {{right:0, left: -width}}
-            className='test1'
-            >
-            <ul className='ingredients_list'>
-            <Ingredients recipeItems = {ingredients}/>
-            </ul>
-            </motion.div>
-            </motion.div>
-            </aside>
         </article>
     )
 }

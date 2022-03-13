@@ -4,6 +4,7 @@ nav{
     display:flex;
     align-items: center;
     justify-content: center;
+    background: rgb(156, 243, 255);
 }
 main{
     width:100%;
@@ -13,11 +14,12 @@ main{
     width: 100%;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 .main_wrapper{
     width:70%;
     display:grid;
-    justify-content: center;
+    align-items: inherit;
     grid-template-columns: 1fr 1fr;
 }
 .ingredients_list {
@@ -36,12 +38,29 @@ main{
     text-align: center;
 } 
 article{
-    width:50vw;
+    width:100%;
 }
 img{
     max-width: 100%;
 }
-h2{
-    width: 100%;
-    grid-column: 2/ -1 !important;
+aside{
+    width:70%;
+}
+.du{
+    margin:5px;
+    border-style: solid;
+    max-width:50%;
+}
+ul{
+    padding:0;
+    margin:20px;
+    list-style: disc;
+}
+.list_display{
+    display:flex;
+    justify-content: space-between;
+}
+.ingredient_image {
+    width:100px;
+    height:100px;
 }

@@ -7,20 +7,16 @@ export const RecipeContext = ({children}) => {
     const [items, setItems] = useState('')
 
     //gets fetch data on inital startup, doesn't update any other time
-
-    useEffect(()=> {
-  
-      const url = 'https://www.themealdb.com/api/json/v2/1/random.php'
-  
       const fetchData = async () => {
+        const url = 'https://www.themealdb.com/api/json/v2/1/random.php'
         const response = await fetch(`${url}`)
         const recipeObject = await response.json()
         const recipe = await recipeObject.meals[0]
         setItems(recipe)
       }
-  
-        (async () => await fetchData())()
 
+    useEffect(()=> {
+      (async () => await fetchData())()
     },[])
 
     //sends id to api link and then resends then sets item variable to the specific list item to display older recipe
