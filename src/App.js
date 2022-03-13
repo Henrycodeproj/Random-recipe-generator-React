@@ -2,6 +2,7 @@ import Content from './components/content/content'
 import SaveRecipe from './components/SaveList/RecipeHandler'
 import {RecipeContext} from './Context/context'
 import {Navbar} from './navbar/navbar'
+import {Instructions} from './components/content/Instructions'
 
 function App() {
 // functions in context
@@ -15,6 +16,7 @@ function App() {
             <Content/>
             <SaveRecipe/>
             </div>
+            <Instructions/>
           </div>
         </main>
       </RecipeContext>
