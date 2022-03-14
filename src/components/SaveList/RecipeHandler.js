@@ -1,10 +1,11 @@
 import {useContext, useState} from "react"
 import { recipeItems } from "../../Context/context"
-import { FaTrashAlt } from "react-icons/fa"
+import { FaTrashAlt, FaArrowRight } from "react-icons/fa"
 import { motion, AnimatePresence } from "framer-motion"
+import { Button} from "@mui/material"
 
 const SaveRecipe = () =>{
-    const {items, showRecipe} = useContext(recipeItems)
+    const {items, showRecipe, fetchData} = useContext(recipeItems)
 
     const [savedItems, setSavedItems] = useState(JSON.parse(localStorage.getItem('savedRecipes')))
 
@@ -24,7 +25,7 @@ const SaveRecipe = () =>{
             setSavedItems(array)
             localStorage.setItem('savedRecipes', JSON.stringify(array))
         } else if (idList.includes(addRecipe.Id) === true) {
-            console.log('This recipe is already in your list!')
+            alert('This recipe is already in your list!')
             return
         } else {
             const newList = [...savedItems, addRecipe]
@@ -65,8 +66,13 @@ const SaveRecipe = () =>{
         // <div className="list_container">
         <section>
             <div className="du">
-                <button className="save_button" onClick={(e) => saveRecipe(e)}>Save Recipe</button>
-                    <ul>
+                <div className="savelist_buttons">
+                <Button variant = "contained"className="next_arrow" onClick={()=>fetchData()}>
+                    Next <FaArrowRight className='faArrow'/>
+                </Button>
+                <Button variant = "contained" color="info" className="save_button" onClick={(e) => saveRecipe(e)}>Save Recipe</Button>
+                </div>
+                    <ul className="saved_container">
                     <AnimatePresence>
                     {savedItems? savedItems.map((listItems) =>
                         <motion.div
@@ -78,7 +84,8 @@ const SaveRecipe = () =>{
                         >
                             <li className="list_display" key={listItems.Id}>
                                 <a className = "list_links"onClick={() => showRecipe            (listItems.Id)}>{listItems.title}</a>
-                                <div><FaTrashAlt className="trash_delete" onClick={()          => deleteHandler(listItems.Id)}/></div>
+                                <div
+                                className="trash_delete" onClick={()         => deleteHandler(listItems.Id)}><FaTrashAlt/></div>
                             </li>
                         </motion.div>
             ):

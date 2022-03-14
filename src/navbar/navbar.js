@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react"
+import { useContext, useState } from "react"
 import { recipeItems } from "../Context/context"
 import {motion} from "framer-motion"
 
@@ -30,11 +30,6 @@ export const Navbar = () => {
 
     return (
         <nav>
-            {/* <ul className="outline">
-                <li>items</li>
-                <li>items2</li>
-                { <Button variant="contained" color ="error">Hello World</Button>}
-            </ul> */}
             <div className="nav-container">
             <input type = "text" placeholder="Type a category or meal" onChange={(e)=> searchBar(e)}></input>
             {searchItems.value !== 0 && (

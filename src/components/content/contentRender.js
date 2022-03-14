@@ -1,8 +1,7 @@
-import { FaArrowRight } from 'react-icons/fa';
 import { useContext} from 'react';
 import {recipeItems} from '../../Context/context';
 
-const ContentRender = ({handleNext}) => {
+const ContentRender = () => {
     
     const {items} = useContext(recipeItems)
 
@@ -10,12 +9,11 @@ const ContentRender = ({handleNext}) => {
         <article>
             <div className='display_wrapper'>
                 <div className='random_recipe'>
-                    <h1>{items.strMeal}</h1>
-                    <h2>{items.strArea}</h2>
+                    <h1 className='meal_name'>{items.strMeal}</h1>
+                    <h2 className='region'>Region: {items.strArea}</h2>
                     <img className = "food_image" src = {items.strMealThumb} alt = "text"></img>
-                    <h2>{items.strCategory}</h2>
-                    <a href = {items.strYoutube}>Watch a video</a>
-                    <div><FaArrowRight onClick={handleNext} className='faArrow'/></div>
+                    <h3>{items.strCategory}</h3>
+                    <div className='video_link'><a href = {items.strYoutube} target = "blank">Watch a video</a></div>
                 </div>
             </div>
         </article>
