@@ -25,7 +25,7 @@ export const Instructions = () => {
 
     return (
         <aside>
-        <div className='work'>{items.strInstructions}</div>
+        <p className='work'>{items.strInstructions}</p>
         <motion.div className='test'>
         <ul className='ingredients_list'>
         <Ingredients recipeItems = {ingredients}/>
