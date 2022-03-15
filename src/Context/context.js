@@ -12,6 +12,7 @@ export const RecipeContext = ({children}) => {
       const response = await fetch(`${url}`)
       const recipeObject = await response.json()
       const recipe = await recipeObject.meals[0]
+      console.log(recipe.strInstructions.split("."))
       setItems(recipe)
       console.log(recipe)
     }
