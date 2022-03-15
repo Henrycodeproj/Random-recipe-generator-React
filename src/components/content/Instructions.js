@@ -1,7 +1,7 @@
 import Ingredients from './Ingredients';
 import { motion } from 'framer-motion';
 import {recipeItems} from '../../Context/context';
-import { useContext } from 'react';
+import { useContext} from 'react';
 
 export const Instructions = () => {
 
@@ -22,6 +22,12 @@ export const Instructions = () => {
             ingredients.push(arr)
         }
     }
+    const convert = async () =>{
+        return items.strInstructions.split(".")
+    }
+
+    (async () => await convert())()
+ 
 
     return (
         <aside>

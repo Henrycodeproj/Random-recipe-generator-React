@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { recipeItems } from "../Context/context"
 import {motion} from "framer-motion"
+import { ListItemSecondaryAction } from "@mui/material"
 
 export const Navbar = () => {
 
@@ -16,7 +17,6 @@ export const Navbar = () => {
             const response = await fetch(`${URL}${e.target.value}`)
             const results = await response.json()
             const meals = await results.meals
-            console.log(meals)
             setSearch(meals)
         }
 
@@ -26,28 +26,14 @@ export const Navbar = () => {
     
     const handlesearchLinks = (meal) => {
         setItems(meal)
-    } 
+    }
 
     return (
         <nav>
             <div className="nav-container">
-            <input type = "text" placeholder="Type a category or meal" onChange={(e)=> searchBar(e)}></input>
-            {searchItems.value !== 0 && (
-                        <div className="searchContainer">
-                            { //begining of conditional
-                            search ? search.map((meal) => // first condition checks to see if there is any information typed in search bar
-                                <motion.div onClick={() => handlesearchLinks(meal)} className = "ddd"
-                                whileHover={{scale:1.1}}
-                                > 
-                                    <img className="preview" src={meal.strMealThumb}></img>
-                                    <p className="search_results">{meal.strMeal}</p>
-                                </motion.div>
-                            ):// If there is nothing in search state, it will render nothing.
-                            console.log('nothing')
-                            }
-                        </div>
-            )}
+            <input className="search_bar" type = "text" placeholder="Type a category or meal" onChange={(e)=> searchBar(e)}></input>
             </div>
+            <div>{search ? <div className="search_container">{search.map((item) =><div>{item.strMeal}</div>)}</div>:null}</div>
         </nav>
     )
 }

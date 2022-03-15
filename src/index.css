@@ -4,17 +4,20 @@ body{
     margin:0;
     padding:0;
     font-family: 'Istok Web', sans-serif;
+    /* background:rgba(0, 238, 255, 0.486); */
 }
 nav{
     width:100%;
     height:5vh;
     display:flex;
     align-items: center;
-    justify-content: center;
-    background: rgb(156, 243, 255);
+    justify-content: right;
+    flex-direction: column;
+    background: linear-gradient(27deg,rgba(0, 255, 213, 0.308) 0%,rgba(0, 102, 255, 0.315) 100%)
 }
 main{
     width:100%;
+    /* background: linear-gradient(27deg,rgba(0, 255, 213, 0.308) 0%,rgba(0, 102, 255, 0.315) 100%) */
 }
 .main_container{
     display:flex;
@@ -26,6 +29,8 @@ main{
 .main_wrapper{
     width:70%;
     display:grid;
+    z-index: 1;
+    gap:20px;
     justify-items:center;
     align-items: inherit;
     grid-template-columns: 1fr 1fr;
@@ -53,7 +58,10 @@ img{
 }
 aside{
     width:70%;
-    border-radius: 10px;
+    border-radius: 5px;
+    border-style: solid;
+    /* background:linear-gradient(27deg,rgba(0, 255, 213, 0.308) 0%,rgba(0, 102, 255, 0.315) 100%) */
+    background:Wheat;
 }
 .du{
     margin:5px;
@@ -71,6 +79,7 @@ aside{
     display:flex;
     justify-content: space-between;
     margin: 5px 0px;
+    border-bottom-style: solid;
 }
 .ingredient_image {
     width:100px;
@@ -112,13 +121,39 @@ svg{
     width:100%;
 }
 .food_image{
-    border-radius: 5px;
+    border-style: solid;
+    border-radius: 10px;
     box-shadow: 5px 5px 10px 1px;
 }
 .region {
 }
 .video_link{
     margin:5px 0;
+}
+.search_bar{
+    border: 0;
+}
+.search_container{
+    z-index: 999999;
+    width:200px;
+    height: 200px;
+    border-radius: 5px;
+    align-self: flex-end;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background:white;
+}
+.ddd{
+    display:flex;
+    justify-content: space-evenly;
+}
+.preview{
+    width:50px;
+    height:50px;
+}
+::-webkit-scrollbar{
+    width:0;
+    background: transparent;
 }
 @media (min-width:1900px){
     .main_wrapper{
