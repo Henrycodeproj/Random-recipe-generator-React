@@ -57,7 +57,9 @@ img{
     max-width: 100%;
 }
 aside{
+    box-sizing: border-box;
     width:70%;
+    padding:10px;
     border-radius: 5px;
     border-style: solid;
     /* background:linear-gradient(27deg,rgba(0, 255, 213, 0.308) 0%,rgba(0, 102, 255, 0.315) 100%) */
@@ -115,7 +117,7 @@ svg{
 .meal_name {
     margin:0;
     margin-top: 20px;
-    font-size:2vw;
+    font-size:1.75vw;
 }
 .input{
     width:100%;
@@ -128,17 +130,17 @@ svg{
 .region {
 }
 .video_link{
-    margin:5px 0;
+    width:fit-content;
+    margin:15px 0;
 }
 .search_bar{
     border: 0;
 }
 .search_container{
-    z-index: 999999;
+    z-index: 999;
     width:200px;
     height: 200px;
     border-radius: 5px;
-    align-self: flex-end;
     overflow-y: scroll;
     overflow-x: hidden;
     background:white;
@@ -154,6 +156,15 @@ svg{
 ::-webkit-scrollbar{
     width:0;
     background: transparent;
+}
+.category_tag{
+    margin:15px 0px 0px 0px;
+    padding:5px;
+    width: fit-content;
+    border-style: solid;
+    border-radius: 5px;
+    background: wheat;
+    cursor: pointer;
 }
 @media (min-width:1900px){
     .main_wrapper{

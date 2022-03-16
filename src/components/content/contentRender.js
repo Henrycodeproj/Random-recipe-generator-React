@@ -12,7 +12,7 @@ const ContentRender = () => {
                     <h1 className='meal_name'>{items.strMeal}</h1>
                     <h2 className='region'>Region: {items.strArea}</h2>
                     <img className = "food_image" src = {items.strMealThumb} alt = "text"></img>
-                    <h3>{items.strCategory}</h3>
+                    <h3 className='category_tag'>{items.strCategory}</h3>
                     <div className='video_link'><a href = {items.strYoutube} target = "blank">Watch a video</a></div>
                 </div>
             </div>
