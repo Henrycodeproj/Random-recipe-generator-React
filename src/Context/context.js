@@ -4,17 +4,17 @@ export const recipeItems = createContext()
 
 export const RecipeContext = ({children}) => {
 
-    const [items, setItems] = useState('')
+    const [items, setItems] = useState([])
 
-    //gets fetch data on inital startup, doesn't update any other time
+    //fetch data on inital startup
     const fetchData = async () => {
-      const url = 'https://www.themealdb.com/api/json/v2/1/random.php'
+      const url = 'https://www.themealdb.com/api/json/v1/1/random.php'
       const response = await fetch(`${url}`)
       const recipeObject = await response.json()
-      const recipe = await recipeObject.meals[0]
-      console.log(recipe.strInstructions.split("."))
-      setItems(recipe)
-      console.log(recipe)
+      const recipe = recipeObject.meals[0]
+      recipe.strInstructions = recipe.strInstructions.split(".");
+      console.log(recipe.strInstructions)
+      setItems(recipe);
     }
 
     useEffect(()=> {
@@ -27,8 +27,8 @@ export const RecipeContext = ({children}) => {
       const url = `https://www.themealdb.com/api/json/v2/1/lookup.php?i=${id}`
         const response = await fetch(`${url}`)
         const previousRecipe = await response.json()
-        const displayRecipe = await previousRecipe.meals[0]
-        setItems(displayRecipe)
+        const displayRecipe = previousRecipe.meals[0]
+        setItems(displayRecipe);
     }
 
     //creates template for children, and values are sent through usecontext

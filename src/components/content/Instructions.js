@@ -22,16 +22,12 @@ export const Instructions = () => {
             ingredients.push(arr)
         }
     }
-    const convert = async () =>{
-        return items.strInstructions.split(".")
-    }
-
-    (async () => await convert())()
- 
+    const instructions = items.strInstructions
 
     return (
         <aside>
-        <p className='work'>{items.strInstructions}</p>
+        {items.strInstructions ? instructions.map((steps, index) => (steps.length !== 1 && steps.length !== 0) || steps !== '' ? <div>Step {index}: {steps}</div>:null): console.log('a')}
+        {items.strInstructions && instructions.map((step) => step.length !== 0 && console.log(step))}
         <motion.div className='test'>
         <ul className='ingredients_list'>
         <Ingredients recipeItems = {ingredients}/>
