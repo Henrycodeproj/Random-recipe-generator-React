@@ -8,7 +8,7 @@ export const RecipeContext = ({children}) => {
 
     //fetch data on inital startup
     const fetchData = async () => {
-      const url = 'https://www.themealdb.com/api/json/v1/1/random.php'
+      const url = 'https://www.themealdb.com/api/json/v2/1/random.php'
       const response = await fetch(`${url}`)
       const recipeObject = await response.json()
       const recipe = recipeObject.meals[0]
@@ -27,7 +27,8 @@ export const RecipeContext = ({children}) => {
       const url = `https://www.themealdb.com/api/json/v2/1/lookup.php?i=${id}`
         const response = await fetch(`${url}`)
         const previousRecipe = await response.json()
-        const displayRecipe = previousRecipe.meals[0]
+        const displayRecipe = await previousRecipe.meals[0]
+        displayRecipe.strInstructions = displayRecipe.strInstructions.split(".");
         setItems(displayRecipe);
     }
 

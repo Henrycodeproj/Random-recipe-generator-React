@@ -5,6 +5,7 @@ body{
     padding:0;
     font-family: 'Istok Web', sans-serif;
     /* background:rgba(0, 238, 255, 0.486); */
+    /* background: rgb(182, 180, 180); */
 }
 nav{
     width:100%;
@@ -13,7 +14,8 @@ nav{
     align-items: center;
     justify-content: right;
     flex-direction: column;
-    background: linear-gradient(27deg,rgba(0, 255, 213, 0.308) 0%,rgba(0, 102, 255, 0.315) 100%)
+    /* background: linear-gradient(27deg,rgba(0, 255, 213, 0.308) 0%,rgba(0, 102, 255, 0.315) 100%) */
+    background: rgba(105, 105, 105, 0.199);
 }
 main{
     width:100%;
@@ -29,11 +31,12 @@ main{
 .main_wrapper{
     width:70%;
     display:grid;
-    z-index: 1;
     gap:20px;
     justify-items:center;
-    align-items: inherit;
+    align-items: center;
     grid-template-columns: 1fr 1fr;
+    box-sizing: border-box;
+    margin:10px 10px 20px 10px;
 }
 .ingredients_list {
     display:flex;
@@ -50,7 +53,7 @@ main{
 .test{
     text-align: center;
 } 
-article{
+article {
     width:100%;
 }
 img{
@@ -59,17 +62,19 @@ img{
 aside{
     box-sizing: border-box;
     width:70%;
-    padding:10px;
+    padding:0px 15px;
     border-radius: 5px;
     border-style: solid;
     /* background:linear-gradient(27deg,rgba(0, 255, 213, 0.308) 0%,rgba(0, 102, 255, 0.315) 100%) */
     background:Wheat;
 }
 .du{
+    max-width: 400px;
+    min-width: 400px;
     margin:5px;
     padding:20px;
     border-style: solid;
-    border-radius:3%;
+    border-radius:10px;
     background: linear-gradient(30deg,rgba(68, 109, 245, 0.432),rgba(20, 233, 144, 0.685))
 }
 .saved_container {
@@ -80,6 +85,7 @@ aside{
 .list_display{
     display:flex;
     justify-content: space-between;
+    align-items: center;
     margin: 5px 0px;
     border-bottom-style: solid;
 }
@@ -91,12 +97,17 @@ aside{
     align-self: center;
     margin-left:10px;
 }
+.faArrow{
+    min-width:10px;
+    min-height:10px;
+}
 .savelist_buttons{
     display:flex;
     justify-content: space-evenly;
     padding:10px;
     border-bottom-style: solid;
     border-color: rgba(165, 163, 163, 0.534);
+    border-color:rgba(104, 189, 245, 0.568);
 }
 .list_links{
     /* text-decoration: underline; */
@@ -117,7 +128,8 @@ svg{
 .meal_name {
     margin:0;
     margin-top: 20px;
-    font-size:1.75vw;
+    font-size:2vw;
+    text-decoration: underline;
 }
 .input{
     width:100%;
@@ -128,10 +140,13 @@ svg{
     box-shadow: 5px 5px 10px 1px;
 }
 .region {
+    font-style: italic;
+    margin:15px 0;
 }
 .video_link{
     width:fit-content;
     margin:15px 0;
+    font-weight: bold;
 }
 .search_bar{
     border: 0;
@@ -158,13 +173,42 @@ svg{
     background: transparent;
 }
 .category_tag{
-    margin:15px 0px 0px 0px;
-    padding:5px;
+    /* margin:15px 0px 0px 0px; */
+    padding:2px 4px !important;
     width: fit-content;
     border-style: solid;
+    border-color: black !important;
     border-radius: 5px;
-    background: wheat;
+    background: #f8c282 !important;
+    color:black !important;
+    font-size: .85rem !important;
+    text-transform: none !important;
+    font-family: 'Istok Web', sans-serif !important;
+    font-weight:bold !important;
+}
+.title_container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+}
+.instructions_title{
+    border-bottom-style: solid;
+}
+.steps {
+    font-weight: bolder;
+}
+.trash_icon{
     cursor: pointer;
+    color:rgb(71, 71, 71);
+}
+.category_recipes{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.MuiPaper-root{
+    max-height:200px;
 }
 @media (min-width:1900px){
     .main_wrapper{
@@ -172,5 +216,21 @@ svg{
     }
     aside{
         width:50%;
+    }
+}
+@media (max-width:400px) {
+    .main_wrapper{
+        grid-template-areas:
+        "article"
+        "section" 
+        ;
+    }
+    article {
+        grid-area: article;
+        width:100%;
+    }
+    section {
+        width:100%;
+        grid-area:section;
     }
 }
