@@ -13,7 +13,6 @@ export const RecipeContext = ({children}) => {
       const recipeObject = await response.json()
       const recipe = recipeObject.meals[0]
       recipe.strInstructions = recipe.strInstructions.split(".");
-      console.log(recipe.strInstructions)
       setItems(recipe);
     }
 

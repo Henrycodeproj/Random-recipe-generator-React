@@ -5,7 +5,7 @@ import {Navbar} from './navbar/navbar'
 import {Instructions} from './components/content/Instructions'
 
 function App() {
-// functions in context
+// Main component renders
   return (
     <div className="App">
       <RecipeContext>
