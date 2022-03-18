@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { recipeItems } from "../Context/context"
 import {motion} from "framer-motion"
+import SearchIcon from '@mui/icons-material/Search';
 import { } from "@mui/material"
 
 export const Navbar = () => {
@@ -8,7 +9,7 @@ export const Navbar = () => {
     const [search, setSearch] = useState('')
     const [searchItems, setSearchItems] = useState([])
 
-    const {setItems} = useContext(recipeItems)
+    const {showRecipe} = useContext(recipeItems)
 
     const searchBar = (e) => {
         setSearch(e.target.value)
@@ -27,18 +28,26 @@ export const Navbar = () => {
     return (
         <nav>
             <div className="nav-container">
-            <input className="search_bar" type = "text" placeholder="Type a category or meal" onChange={(e)=> searchBar(e)}></input>
+                <div className="search_bar_container">
+                    <SearchIcon className="mag_glass"/>
+                    <input className="search_bar" type = "text" placeholder = "Search for a recipe..." onChange={(e)=> searchBar(e)}></input>
+                </div>
+                    {
+                        search.length !== 0 &&
+                        <div className="search_container">
+                            <ul>
+                            {searchItems !== null ? searchItems.map((item) =>
+                                <li className="category_recipes" onClick={() => showRecipe(item.idMeal)}>
+                                    <img className="preview" src={item.strMealThumb} alt = "thumbnail"></img>
+                                    <div>{item.strMeal}</div>
+                                </li>
+                                ):
+                                null
+                            }
+                            </ul>
+                        </div>
+                    }
             </div>
-            {search.length !== 0 &&
-            <div className="search_container">{searchItems !== 0 && searchItems.map((item) =>
-                <ul>
-                    <li>
-                        <img className="preview" src={item.strMealThumb} alt = "thumbnail"></img>
-                        <div>{item.strMeal}</div>
-                    </li>
-                </ul>
-            )}</div>
-            }
         </nav>
     )
 }

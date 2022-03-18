@@ -2,15 +2,16 @@ import Ingredients from './Ingredients';
 import { motion } from 'framer-motion';
 import {recipeItems} from '../../Context/context';
 import { useContext} from 'react';
-import { Button, Dialog, DialogContent, DialogTitle} from '@mui/material';
+import { Button, Modal, Box, Typography} from '@mui/material';
 import {useState} from 'react';
+import LocalDiningIcon from '@mui/icons-material/LocalDining';
 
 export const Instructions = () => {
 
     const [isClicked, setisClicked] = useState(false)
     const [categories, setCategories] = useState([])
 
-    const {items} = useContext(recipeItems)
+    const {items, showRecipe} = useContext(recipeItems)
 
     const getCategories = async (category) => {
         const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c='
@@ -19,6 +20,23 @@ export const Instructions = () => {
         const recipes = recipeObject.meals
         setCategories(recipes)
     }
+    
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        // width: 400, I've commented this out and redefined below
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+        // I've added these to the demo:
+        height: '300px',
+        width: '300px',
+        overflow: 'auto',
+        borderRadius:'10px'
+    };
 
     const ingredients = []
     //gets the values from the keys in returned json object
@@ -49,30 +67,40 @@ export const Instructions = () => {
         <aside>
             <div className='title_container'>
                 <h1 className='instructions_title'>Instructions</h1>
+                <LocalDiningIcon/>
             </div>
             {items.strInstructions && instructions.map((steps, index) => (steps.length !== 1 && steps.length !== 0) || steps !== '' ? <div  className='steps'> {index}: {steps}</div>:null)}
             <div className='video_link'>
                 <a href = {items.strYoutube} target = "blank" title='Click here to watch a video tutorial'>Watch a video</a>
             </div>
-            {<Button variant="outlined" className='category_tag' onClick={()=> handlePopOpen(items.strCategory)}>
+            {<Button variant="outlined" className='category_tag' title='Click here for more recipes in this category' onClick={()=> handlePopOpen(items.strCategory)}>
                 {items.strCategory}
             </Button>}
             <motion.div className='test'>
                 <ul className='ingredients_list'>
-                    <Ingredients recipeItems = {ingredients}/>
+                    {ingredients.map((measurements, index) =>
+                        <Ingredients
+                            index = {index}
+                            measurements = {measurements}
+                        />
+                    )}
                 </ul>
             </motion.div>
-            <Dialog maxHeight="200px" className='modal' open = {isClicked} onClose={handlePopClose}>
-                <DialogTitle>Categories</DialogTitle>
-                <DialogContent>
-                {categories && categories.map((category) =>
-                    <div className='category_recipes'>
+            <Modal open = {isClicked} onClose={handlePopClose}>
+                <Box className = "Box"sx ={style}>
+                    <Typography>
+                    <h1 className='category_title'>Categories</h1>
+                    <ul>
+                    {categories && categories.map((category) =>
+                    <li className='category_recipes' onClick={() => showRecipe(category.idMeal)}>
                         <img className='preview' src = {category.strMealThumb}></img>
                         <div>{category.strMeal}</div>
-                    </div>
-                )}
-                </DialogContent>
-            </Dialog>
+                    </li>
+                    )}
+                    </ul>
+                    </Typography>
+                </Box>
+            </Modal>
         </aside>
     )
 }

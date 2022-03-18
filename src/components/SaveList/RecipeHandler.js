@@ -3,6 +3,7 @@ import { recipeItems } from "../../Context/context"
 import { FaTrashAlt, FaArrowRight } from "react-icons/fa"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@mui/material"
+import KitchenIcon from '@mui/icons-material/Kitchen';
 
 const SaveRecipe = () =>{
     const {items, showRecipe, fetchData} = useContext(recipeItems)
@@ -70,7 +71,10 @@ const SaveRecipe = () =>{
                 <Button variant = "contained"className="next_arrow" onClick={()=>fetchData()}>
                     Next <FaArrowRight className='faArrow'/>
                 </Button>
-                <Button variant = "contained" color="info" className="save_button" onClick={() => saveRecipe()}>Save Recipe</Button>
+                <Button variant = "contained" color="info" className="save_button" onClick={() => saveRecipe()}>
+                    Save Recipe
+                    <KitchenIcon className="kitchenIcon"/>
+                </Button>
                 </div>
                     <ul className="saved_container">
                     <AnimatePresence>
