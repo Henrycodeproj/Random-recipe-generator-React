@@ -236,6 +236,7 @@ svg{
     color:rgb(71, 71, 71);
 }
 .category_recipes{
+    margin:5px;
     cursor: pointer;
     display:flex;
     align-items: center;
@@ -251,6 +252,10 @@ svg{
 .measurements{
     margin-left:5px;
 }
+.MenuBookIcon{
+    width:24px !important;
+    height:24px !important;
+}
 /* anything over 1900px */
 @media (min-width:1900px){
     .meal_name{
@@ -265,7 +270,7 @@ svg{
 }
 @media (max-width:1800px) {
     .food_image{
-        min-width:513px;
+        /* min-width:513px; */
     }
 }
 @media (max-width:1800px) {
@@ -275,18 +280,36 @@ svg{
 }
 /* below certain pixels */
 @media (max-width:500px) {
-    .du{
-        width: 100%;
+    section{
+        width: 100% !important;
+    }
+    aside{
+        width:100%;
     }
     .food_image{
         max-width: 100%;
-        min-width: none;
+        height: auto;
+        /* max-width: 100%;
+        min-width: none; */
+    }
+    .random_recipe{
+        width: 100%;
+    }
+    .du{
+        max-width:100% !important;
+        min-width: 100% !important;
     }
     .main_wrapper{
+        max-width:100%;
+        gap:0;
+        grid-template-columns: auto;
         grid-template-areas:
         "section"
         "article" 
         ;
+    }
+    .main_container{
+        width: 100%;
     }
     article {
         grid-area: article;
