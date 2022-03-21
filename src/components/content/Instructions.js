@@ -26,12 +26,10 @@ export const Instructions = () => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        // width: 400, I've commented this out and redefined below
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
-        // I've added these to the demo:
         height: '300px',
         width: '300px',
         overflow: 'auto',
