@@ -66,6 +66,7 @@ const SaveRecipe = () =>{
 
     return (
         <section>
+            <div className="asd">
             <div className="du">
                 <div className="savelist_buttons">
                 <Button variant = "contained"className="next_arrow" onClick={()=>fetchData()}>
@@ -98,6 +99,7 @@ const SaveRecipe = () =>{
                     </AnimatePresence>
                     </ul>
                 </div>
+            </div>
             </section>
     )
 }

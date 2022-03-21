@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400&display=swap');
-
 body{
     margin:0;
     padding:0;
@@ -30,6 +29,7 @@ nav{
 }
 main{
     width:100%;
+    box-sizing: border-box;
     /* background: linear-gradient(27deg,rgba(0, 255, 213, 0.308) 0%,rgba(0, 102, 255, 0.315) 100%) */
 }
 .main_container{
@@ -257,7 +257,7 @@ svg{
     height:24px !important;
 }
 /* anything over 1900px */
-@media (min-width:1900px){
+/* @media (min-width:1900px){
     .meal_name{
         font-size:2vw;
     }
@@ -270,12 +270,25 @@ svg{
 }
 @media (max-width:1800px) {
     .food_image{
-        /* min-width:513px; */
+        min-width:513px;
     }
 }
 @media (max-width:1800px) {
     .main_wrapper{
-        width:100%;
+        width:70%;
+    }
+    .du{
+        max-width: 900px;
+        min-width: none;
+    }
+}
+@media (max-width:1025px){
+    .du {
+        max-width: auto !important;
+        min-width: auto !important;
+    }
+    .main_wrapper{
+        width:90%;
     }
 }
 /* below certain pixels */
@@ -283,24 +296,29 @@ svg{
     section{
         width: 100% !important;
     }
+    .ingredient_image{
+        width:50px;
+        height:50px;
+    }
     aside{
         width:100%;
     }
     .food_image{
         max-width: 100%;
-        height: auto;
-        /* max-width: 100%;
-        min-width: none; */
     }
     .random_recipe{
         width: 100%;
     }
     .du{
-        max-width:100% !important;
-        min-width: 100% !important;
+        margin:0;
+        /* box-sizing: content-box; */
+        max-width: 100% !important;
+        min-width: 0% !important;
+        max-height: 100% !important;
     }
     .main_wrapper{
-        max-width:100%;
+        width:100%;
+        grid: auto;
         gap:0;
         grid-template-columns: auto;
         grid-template-areas:
@@ -308,9 +326,12 @@ svg{
         "article" 
         ;
     }
-    .main_container{
-        width: 100%;
+    .meal_name, .region{
+        text-align: center;
     }
+    /* .main_container{
+        width: 100%;
+    } */
     article {
         grid-area: article;
         width:100%;
@@ -318,5 +339,8 @@ svg{
     section {
         width:100%;
         grid-area:section;
+    }
+    .ingredients_list{
+        justify-content: space-evenly;
     }
 }
