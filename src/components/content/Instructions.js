@@ -67,7 +67,7 @@ export const Instructions = () => {
                 <h1 className='instructions_title'>Instructions</h1>
                 <LocalDiningIcon/>
             </div>
-            {items.strInstructions && instructions.map((steps, index) => (steps.length !== 1 && steps.length !== 0) || steps !== '' ? <div  className='steps'> {index}: {steps}</div>:null)}
+            {items.strInstructions && instructions.map((steps, index) => (steps.length !== 1 && steps.length !== 0) || steps !== '' ? <div  className='steps'> {index + 1}: {steps}</div>:null)}
             <div className='video_link'>
                 <a href = {items.strYoutube} target = "blank" title='Click here to watch a video tutorial'>Watch a video</a>
             </div>
