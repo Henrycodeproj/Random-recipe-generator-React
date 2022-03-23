@@ -66,7 +66,7 @@ const SaveRecipe = () =>{
 
     return (
         <section>
-            <div className="du">
+            <div className="list_container">
                 <div className="savelist_buttons">
                 <Button variant = "contained"className="next_arrow" onClick={()=>fetchData()}>
                     Next <FaArrowRight className='faArrow'/>
