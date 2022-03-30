@@ -42,12 +42,11 @@ export const Instructions = () => {
     let counter = 29
     //The item number position starts at 9 and the ingredients start at 29 for api,
     for (let i = 9; i <= 28; i++) { 
-        // this loop adds a sub array to an outter array to better organize data
         let arr = []
         arr.push(values[counter])
         arr.push(values[i])
         counter += 1
-        if (arr[0] && arr[1] !== '') { //checks to see if array has any items and appends if items are present
+        if (arr[0] && arr[1] !== '') {
             ingredients.push(arr)
         }
     }
@@ -88,14 +87,14 @@ export const Instructions = () => {
                 <Box className = "Box"sx ={style}>
                     <Typography>
                     <h1 className='category_title'>Categories</h1>
-                    <ul>
-                    {categories && categories.map((category) =>
-                    <li className='category_recipes' onClick={() => showRecipe(category.idMeal)}>
-                        <img className='preview' src = {category.strMealThumb}></img>
-                        <div>{category.strMeal}</div>
-                    </li>
-                    )}
-                    </ul>
+                        <ul>
+                            {categories && categories.map((category) =>
+                            <li className='category_recipes' onClick={() => showRecipe(category.idMeal)}>
+                                <img className='preview' src = {category.strMealThumb}></img>
+                                <div>{category.strMeal}</div>
+                            </li>
+                            )}
+                        </ul>
                     </Typography>
                 </Box>
             </Modal>

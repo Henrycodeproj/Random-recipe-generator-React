@@ -1,9 +1,14 @@
-import { useContext} from 'react';
+import { useContext, useEffect, useState} from 'react';
 import {recipeItems} from '../../Context/context';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 
 export const ContentRender = () => {
     
     const {items} = useContext(recipeItems)
+
+    useEffect(()=>{
+        console.log('items changing')
+    },[items])
 
     return (
         <article>
