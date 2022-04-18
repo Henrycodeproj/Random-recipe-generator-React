@@ -139,6 +139,7 @@ svg{
     margin-top: 20px;
     font-size:2rem;
     text-decoration: underline;
+    text-transform: capitalize;
 }
 .input{
     width:100%;
