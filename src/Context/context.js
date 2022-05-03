@@ -26,7 +26,7 @@ export const RecipeContext = ({children}) => {
       const url = `https://www.themealdb.com/api/json/v2/1/lookup.php?i=${id}`
         const response = await fetch(`${url}`)
         const previousRecipe = await response.json()
-        const displayRecipe = await previousRecipe.meals[0]
+        const displayRecipe = previousRecipe.meals[0]
         displayRecipe.strInstructions = displayRecipe.strInstructions.split(".");
         setItems(displayRecipe);
     }
