@@ -2,7 +2,6 @@ import { useContext, useState } from "react"
 import { recipeItems } from "../Context/context"
 import {motion} from "framer-motion"
 import SearchIcon from '@mui/icons-material/Search';
-import { } from "@mui/material"
 
 export const Navbar = () => {
 
