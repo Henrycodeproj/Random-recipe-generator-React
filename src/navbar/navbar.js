@@ -16,8 +16,8 @@ export const Navbar = () => {
         const URL = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
         const fetchData = async () => {
             const response = await fetch(`${URL}${e.target.value}`)
-            const results = await response.json()
-            const meals = await results.meals
+            const results = response.json()
+            const meals = results.meals
             setSearchItems(meals)
         }
 
