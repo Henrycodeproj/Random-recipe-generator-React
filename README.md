@@ -8,6 +8,6 @@ This app will use themealdb api to get recipes and will allow users to save it i
 **Libraries**:\
 -**Material UI** *v5.4.2*\
 -**React JS** *v17.0.2*\
--**Framer Motion** *6.2.4**
+-**Framer Motion** *6.2.4*
 
 Currently hosted at : https://random-food-recipe-generator.herokuapp.com/
