@@ -7,7 +7,7 @@ export const ContentRender = () => {
     const {items} = useContext(recipeItems)
 
     useEffect(()=>{
-        console.log('items changing')
+        console.log('Next recipe.')
     },[items])
 
     return (
