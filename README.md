@@ -1,5 +1,7 @@
 # A random recipe generator.
 
+**Demo** : https://random-food-recipe-generator.herokuapp.com/
+
 **Goal**: The goal of this app is to create an online cookbook that allows mindless sifting through recipes and allowing users to save and quickly access them later.
 
 **Description**:
@@ -10,4 +12,3 @@ This app will use themealdb api to get recipes and will allow users to save it i
 -**React JS** *17.0.2*\
 -**Framer Motion** *6.2.4*
 
-Currently hosted at : https://random-food-recipe-generator.herokuapp.com/
