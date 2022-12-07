@@ -12,10 +12,10 @@ export const Navbar = () => {
 
     const searchBar = (e) => {
         setSearch(e.target.value)
-        const URL = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
+        const URL = `https://www.themealdb.com/api/json/v1/1/search.php?s=${e.target.value}`
         const fetchData = async () => {
-            const response = await fetch(`${URL}${e.target.value}`)
-            const results = response.json()
+            const response = await fetch(URL)
+            const results = await response.json()
             const meals = results.meals
             setSearchItems(meals)
         }
@@ -34,7 +34,6 @@ export const Navbar = () => {
                     {
                         search.length !== 0 &&
                         <div className="search_container">
-                            {console.log(searchItems)}
                             <ul>
                             {searchItems.length > 0 
                                 ? searchItems.map((item) =>
