@@ -20,7 +20,7 @@ export const Navbar = () => {
             setSearchItems(meals)
         }
 
-        (async () => fetchData())()
+        fetchData()
 
     }
 
@@ -34,14 +34,16 @@ export const Navbar = () => {
                     {
                         search.length !== 0 &&
                         <div className="search_container">
+                            {console.log(searchItems)}
                             <ul>
-                            {searchItems !== null ? searchItems.map((item) =>
+                            {searchItems.length > 0 
+                                ? searchItems.map((item) =>
                                 <li className="category_recipes" onClick={() => showRecipe(item.idMeal)}>
                                     <img className="preview" src={item.strMealThumb} alt = "thumbnail"></img>
                                     <div>{item.strMeal}</div>
                                 </li>
-                                ):
-                                null
+                                )
+                                : null
                             }
                             </ul>
                         </div>
