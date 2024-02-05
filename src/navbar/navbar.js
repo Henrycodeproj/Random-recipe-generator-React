@@ -4,7 +4,6 @@ import {motion} from "framer-motion"
 import SearchIcon from '@mui/icons-material/Search';
 
 export const Navbar = () => {
-    //testing branch
     const [search, setSearch] = useState('')
     const [searchItems, setSearchItems] = useState([])
 
