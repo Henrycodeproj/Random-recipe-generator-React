@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState} from 'react';
+import { useContext, useEffect} from 'react';
 import {recipeItems} from '../../Context/context';
-import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 
 export const ContentRender = () => {
     

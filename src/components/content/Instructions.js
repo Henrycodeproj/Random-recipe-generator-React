@@ -90,7 +90,7 @@ export const Instructions = () => {
                         <ul>
                             {categories && categories.map((category) =>
                             <li className='category_recipes' onClick={() => showRecipe(category.idMeal)}>
-                                <img className='preview' src = {category.strMealThumb}></img>
+                                <img className='preview' src = {category.strMealThumb} alt = "pic"></img>
                                 <div>{category.strMeal}</div>
                             </li>
                             )}
