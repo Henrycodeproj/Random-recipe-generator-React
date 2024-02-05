@@ -2,7 +2,7 @@
 
 **This app no longer works because heroku no longer has a free tier**
 
-**Demo** : https://random-food-recipe-generator.herokuapp.com/
+**Demo** : [https://random-food-recipe-generator.herokuapp.com/](https://randomrecipefinder.netlify.app/)
 
 **Goal**: The goal of this app is to create an online cookbook that allows mindless sifting through recipes and allowing users to save and quickly access them later.
 
